@@ -3,14 +3,40 @@ import 'firebase/auth';
 import 'firebase/firestore';
 
 const config = {
-    apiKey: "AIzaSyAIyio-Az9b4-OkBCjMswUNMyoKO4-23sw",
-    authDomain: "fab-clothing.firebaseapp.com",
-    projectId: "fab-clothing",
-    storageBucket: "fab-clothing.appspot.com",
-    messagingSenderId: "17013825496",
-    appId: "1:17013825496:web:9ea21dfd626c2259915cad",
-    measurementId: "G-2JKVCLRN5H"
+  apiKey: "AIzaSyDdkuySKHONtpQBP4gxa2QwbARGA8XP_fc",
+  authDomain: "fab-clothing2.firebaseapp.com",
+  projectId: "fab-clothing2",
+  storageBucket: "fab-clothing2.appspot.com",
+  messagingSenderId: "581722157854",
+  appId: "1:581722157854:web:a1f9646286022e1883cf0f",
+  measurementId: "G-0Z7C64X47M"
   };
+
+export const createUserProfileDocument = async (userAuth, additionalData) =>{
+
+  if(!userAuth) return;;
+
+  const userRef = firestore.doc(`users/${userAuth.uid}`);
+  const snapShot = await userRef.get()
+  if(!snapShot.exists) {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        createdAt,
+        ...additionalData
+      });
+    } catch (error) {
+      console.log('Error creating user', error.message);
+    }
+  }
+
+  return userRef;
+
+};
 
 firebase.initializeApp(config);
 
