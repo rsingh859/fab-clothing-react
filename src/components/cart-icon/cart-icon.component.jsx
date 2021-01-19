@@ -11,7 +11,7 @@ const CartIcon = () => {
     
     const {itemCount} = useSelector(createStructuredSelector({
         itemCount: selectCartItemsCount
-    }), () => console.log('I am being called'));
+    }));
 
     const dispatch = useDispatch();
     
