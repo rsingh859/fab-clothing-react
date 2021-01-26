@@ -20,8 +20,6 @@ class SignIn extends React.Component {
         e.preventDefault();
         const { emailSignInStart } = this.props;
         const { email, password } = this.state;
-        console.log('Inside Sign-in component');
-        console.log(email, password);
         emailSignInStart(email, password);
     }
 

@@ -27,7 +27,7 @@ const INITIAL_STATE = {
         },
         {
           title: 'mens',
-          imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+          imageUrl: 'https://www.wallpapertip.com/wmimgs/178-1780820_men-fashion-background-fashion.jpg',
           size: 'large',
           id: 5,
           linkUrl: 'shop/mens'
