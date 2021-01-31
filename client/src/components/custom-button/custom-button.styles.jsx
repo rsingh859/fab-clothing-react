@@ -24,7 +24,6 @@ const InvertedStyles = css`
       color: white;
       border: none;
     }
-  }
 `;
 
 const GoogleSignStyles = css`
@@ -62,5 +61,9 @@ export const CustomButtonContainer = styled.button`
   justify-content: center;
 
   ${getButtonStyles}
+
+  @media screen and (max-width: 800px) {
+    min-width: 120px;
+  }
 `;
 

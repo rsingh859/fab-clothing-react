@@ -1,4 +1,4 @@
-import './App.css';
+import {GlobalStyle} from './global.styles';
 import React, { useEffect } from 'react';
 import HomePage from './pages/homepage/homepage.component';
 import { Route, Switch, Redirect } from 'react-router-dom';
@@ -19,13 +19,14 @@ const App = ({ checkUserSession, currentUser }) => {
 
     return (
       <div>
-      <Header />
-      <Switch>
-        <Route exact path='/' component={HomePage} />
-        <Route path='/shop' component={ShopPage} />
-        <Route exact path='/signin' render={() => currentUser ? <Redirect to='/' /> : <SignInSignUp />} />
-        <Route path = '/checkout' component={Checkout} />
-      </Switch>
+      <GlobalStyle />
+        <Header />
+          <Switch>
+            <Route exact path='/' component={HomePage} />
+            <Route path='/shop' component={ShopPage} />
+            <Route exact path='/signin' render={() => currentUser ? <Redirect to='/' /> : <SignInSignUp />} />
+            <Route path = '/checkout' component={Checkout} />
+          </Switch>
       </div>
     );
   } 
